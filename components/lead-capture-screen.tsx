@@ -66,7 +66,7 @@ export function LeadCaptureScreen() {
             <h2 className="text-2xl md:text-3xl font-serif font-bold text-white">
               Almost there! Get your instant offer
             </h2>
-            <p className="text-slate-600">We'll send your personalized home valuation report right to your inbox</p>
+            <p className="text-gray-300">We'll send your personalized home valuation report right to your inbox</p>
           </div>
 
           {/* Trust Indicators */}
