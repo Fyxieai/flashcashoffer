@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: "Home Value Quiz - Get Your Cash Offer in 60 Seconds",
   description:
     "Discover what your home is really worth with our interactive quiz. Get an instant cash offer estimate in just 60 seconds.",
-  generator: "v0.app",
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
