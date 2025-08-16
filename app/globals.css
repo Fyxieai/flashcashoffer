@@ -140,3 +140,30 @@
     opacity: 0 !important;
   }
 }
+
+/* Adding aggressive watermark blocking for any v0 attribution */
+/* Emergency watermark blocker - targets common v0 watermark patterns */
+div[style*="position: fixed"][style*="bottom"],
+div[style*="position: absolute"][style*="bottom"],
+[data-testid*="watermark"],
+[class*="watermark"],
+[id*="watermark"],
+a[href*="v0.dev"],
+a[href*="v0.app"],
+div:has(a[href*="v0"]) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Hide any text containing v0 references */
+*:not(script):not(style) {
+  font-size: inherit;
+}
+
+/* Block common watermark positioning */
+body > div:last-child[style*="position: fixed"],
+body > div:last-child[style*="position: absolute"] {
+  display: none !important;
+}
