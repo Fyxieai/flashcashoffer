@@ -127,3 +127,16 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Hide potential v0 watermarks with valid CSS */
+@layer utilities {
+  .hide-watermarks [data-v0-watermark],
+  .hide-watermarks [class*="v0-watermark"],
+  .hide-watermarks [id*="v0-watermark"],
+  .hide-watermarks div[style*="position: fixed"][style*="bottom: 0"],
+  .hide-watermarks div[style*="position: absolute"][style*="bottom: 0"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+}
