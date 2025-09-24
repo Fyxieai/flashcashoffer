@@ -59,7 +59,7 @@ function QuizContent() {
       </div>
 
       {/* Chatbot Component */}
-      <Chatbot webhookUrl="https://fyxie.app.n8n.cloud/webhook-test/flashcash" />
+      <Chatbot webhookUrl="https://fyxie.app.n8n.cloud/webhook/flashcash" />
     </div>
   )
 }
