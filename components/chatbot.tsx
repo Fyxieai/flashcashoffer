@@ -31,30 +31,8 @@ export function Chatbot({ webhookUrl, onMessage }: ChatbotProps) {
   const [messages, setMessages] = useState<Message[]>([])
   const [inputValue, setInputValue] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-  const [hasAutoOpened, setHasAutoOpened] = useState(false)
   const [sessionId, setSessionId] = useState<string>("")
   const messagesEndRef = useRef<HTMLDivElement>(null)
-
-  // Auto-open chatbot after 3 seconds
-  useEffect(() => {
-    if (!hasAutoOpened) {
-      const timer = setTimeout(() => {
-        setIsOpen(true)
-        setHasAutoOpened(true)
-        setSessionId(generateSessionId())
-        // Add initial greeting message
-        setMessages([
-          {
-            id: "greeting",
-            text: "Hey, how can I help?",
-            isUser: false,
-            timestamp: new Date(),
-          },
-        ])
-      }, 3000)
-      return () => clearTimeout(timer)
-    }
-  }, [hasAutoOpened])
 
   // Scroll to bottom when messages change
   useEffect(() => {
@@ -139,6 +117,14 @@ export function Chatbot({ webhookUrl, onMessage }: ChatbotProps) {
       setIsMinimized(false)
       if (!sessionId) {
         setSessionId(generateSessionId())
+        setMessages([
+          {
+            id: "greeting",
+            text: "Hey, how can I help?",
+            isUser: false,
+            timestamp: new Date(),
+          },
+        ])
       }
     }
   }

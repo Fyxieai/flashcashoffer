@@ -20,6 +20,26 @@ export const metadata: Metadata = {
   title: "Home Value Quiz - Get Your Cash Offer in 60 Seconds",
   description:
     "Discover what your home is really worth with our interactive quiz. Get an instant cash offer estimate in just 60 seconds.",
+  openGraph: {
+    title: "Home Value Quiz - Get Your Cash Offer in 60 Seconds",
+    description:
+      "Discover what your home is really worth with our interactive quiz. Get an instant cash offer estimate in just 60 seconds.",
+    images: [
+      {
+        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/flashcash-hmxAt4GUT4oxplE8A2KbWzkfe8aaXc.png",
+        width: 1200,
+        height: 630,
+        alt: "Flash Cash Offers Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Home Value Quiz - Get Your Cash Offer in 60 Seconds",
+    description:
+      "Discover what your home is really worth with our interactive quiz. Get an instant cash offer estimate in just 60 seconds.",
+    images: ["https://hebbkx1anhila5yf.public.blob.vercel-storage.com/flashcash-hmxAt4GUT4oxplE8A2KbWzkfe8aaXc.png"],
+  },
     generator: 'v0.app'
 }
 
