@@ -89,8 +89,15 @@ export function Chatbot({ webhookUrl, onMessage }: ChatbotProps) {
             sessionId: sessionId,
           }),
         })
-        const data = await res.json()
-        response = data.response || "I'm sorry, I couldn't process that request."
+
+        const contentType = res.headers.get("content-type")
+        if (contentType && contentType.includes("application/json")) {
+          const data = await res.json()
+          response = data.response || data.message || "I'm sorry, I couldn't process that request."
+        } else {
+          // Handle plain text response
+          response = await res.text()
+        }
       } else {
         // Fallback response
         response =
