@@ -21,6 +21,10 @@ interface ChatbotProps {
   onMessage?: (message: string) => Promise<string>
 }
 
+const generateSessionId = () => {
+  return `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+}
+
 export function Chatbot({ webhookUrl, onMessage }: ChatbotProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [isMinimized, setIsMinimized] = useState(false)
@@ -28,6 +32,7 @@ export function Chatbot({ webhookUrl, onMessage }: ChatbotProps) {
   const [inputValue, setInputValue] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [hasAutoOpened, setHasAutoOpened] = useState(false)
+  const [sessionId, setSessionId] = useState<string>("")
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   // Auto-open chatbot after 3 seconds
@@ -36,6 +41,7 @@ export function Chatbot({ webhookUrl, onMessage }: ChatbotProps) {
       const timer = setTimeout(() => {
         setIsOpen(true)
         setHasAutoOpened(true)
+        setSessionId(generateSessionId())
         // Add initial greeting message
         setMessages([
           {
@@ -78,7 +84,10 @@ export function Chatbot({ webhookUrl, onMessage }: ChatbotProps) {
         const res = await fetch(webhookUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ message: text.trim() }),
+          body: JSON.stringify({
+            message: text.trim(),
+            sessionId: sessionId,
+          }),
         })
         const data = await res.json()
         response = data.response || "I'm sorry, I couldn't process that request."
@@ -121,6 +130,9 @@ export function Chatbot({ webhookUrl, onMessage }: ChatbotProps) {
     } else {
       setIsOpen(true)
       setIsMinimized(false)
+      if (!sessionId) {
+        setSessionId(generateSessionId())
+      }
     }
   }
 
