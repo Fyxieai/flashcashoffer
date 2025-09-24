@@ -5,6 +5,7 @@ import { WelcomeScreen } from "@/components/welcome-screen"
 import { QuestionScreen } from "@/components/question-screen"
 import { LeadCaptureScreen } from "@/components/lead-capture-screen"
 import { ResultsScreen } from "@/components/results-screen"
+import { Chatbot } from "@/components/chatbot"
 
 function QuizContent() {
   const { currentStep, totalSteps } = useQuiz()
@@ -56,6 +57,9 @@ function QuizContent() {
           </div>
         </div>
       </div>
+
+      {/* Chatbot Component */}
+      <Chatbot />
     </div>
   )
 }
