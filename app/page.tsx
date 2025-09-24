@@ -59,7 +59,7 @@ function QuizContent() {
       </div>
 
       {/* Chatbot Component */}
-      <Chatbot />
+      <Chatbot webhookUrl="https://fyxie.app.n8n.cloud/webhook/013460d7-a410-430f-ba46-b4d858b38ae2/chat" />
     </div>
   )
 }
