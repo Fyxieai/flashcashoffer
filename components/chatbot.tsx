@@ -157,7 +157,7 @@ export function Chatbot({ webhookUrl, onMessage }: ChatbotProps) {
         >
           {/* Header */}
           <div className="flex items-center justify-between -mt-1 border-b border-slate-700/50 bg-gradient-to-r from-slate-800/50 to-slate-900/50">
-            <div className="flex items-center gap-3">
+            <div className="flex-1 flex items-center justify-center gap-3 pr-16">
               <div className="w-8 h-8 rounded-full bg-gradient-to-r from-yellow-400 to-amber-500 flex items-center justify-center">
                 <MessageCircle className="h-4 w-4 text-black" />
               </div>
